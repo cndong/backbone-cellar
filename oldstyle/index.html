@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Backbone Cellar</title>
+        <link rel="stylesheet" href="../css/styles.css">
+    </head>
+
+    <body style="zoom: 100%; ">
+        <div id="header">
+            <div>
+                <a href="#!wines/new"><button class="new">New Wine</button></a>
+            </div>
+        </div>
+
+        <div id="sidebar">
+            <ul>
+
+            </ul>
+            <script type="text/html" id="wineListTpl">
+                <ul>
+                    {{#wines}}
+                    <li>
+                        <a href="#!wines/{{id}}">{{name}}</a>
+                    </li>
+                    {{/wines}}
+                </ul>
+            </script>
+        </div>
+
+        <div id="content">
+            <script type="text/html" id="welcomeTpl">
+                <h2>Welcome to Backbone Cellar</h2>
+                <p>
+                This is a sample application part of of three-part tutorial showing how to build a CRUD application with Backbone.js.
+                </p>
+            </script>
+            <script type="text/html" id="wineDetailTpl">
+                <div class="form-left-col">
+                    <label>Id:</label>
+                    <input id="wineId" name="id" type="text" value="{{id}}" disabled />
+
+                    <label>Name:</label>
+                    <input type="text" id="name" name="name" value="{{name}}" required/>
+
+                    <label>Grapes:</label>
+                    <input type="text" id="grapes" name="grapes" value="{{grapes}}"/>
+
+                    <label>Country:</label>
+                    <input type="text" id="country" name="country" value="{{country}}"/>
+
+                    <label>Region:</label>
+                    <input type="text" id="region" name="region"  value="{{region}}"/>
+
+                    <label>Year:</label>
+                    <input type="text" id="year" name="year"  value="{{year}}"/>
+
+                    <button class="save">Save</button>
+                    <button class="delete">Delete</button>
+                </div>
+
+                <div class="form-right-col">
+                    <img height="300" src="../pics/{{picture}}"/>
+                    <label>Notes:</label>
+                    <textarea id="description" name="description">{{description}}</textarea>
+                </div>
+            </script>
+        </div>
+
+        <script src="../lib/jquery-1.7.1.min.js"></script>
+        <script src="../lib/underscore-min.js"></script>
+        <script src="../lib/backbone-min.js"></script>
+        <script src="js/ICanHaz.js"></script>
+        <script src="js/hashhandler.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
