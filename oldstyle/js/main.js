@@ -1,4 +1,15 @@
 var Wines = {
+
+    url: '../api/wines',
+
+    init: function() {
+        HashHandler.push(
+            ['', Wines.index],
+            ['wines', Wines.detail],
+            ['wines/new', Wines.create]
+        );
+    },
+
     index: function() {
         console.log('index');
 
@@ -10,7 +21,7 @@ var Wines = {
     list: function() {
         console.log('list');
         $.ajax({
-            url: '../api/wines',
+            url: Wines.url,
             dataType: 'json',
             success: function(response) {
                 $.each(response, function(index, wine) {
@@ -23,7 +34,7 @@ var Wines = {
     detail: function(wineId) {
         console.log('detail');
         $.ajax({
-            url: '../api/wines/' + wineId,
+            url: Wines.url + '/' + wineId,
             dataType: 'json',
             success: function(response) {
                 $('#content').html(ich.wineDetailTpl(response));
@@ -42,7 +53,7 @@ var Wines = {
     save: function() {
         console.log('save');
         $.ajax({
-            url: '../api/wines',
+            url: Wines.url,
             dataType: 'json',
             data: Wines.formToJSON(),
             type: 'POST',
@@ -56,7 +67,7 @@ var Wines = {
     delete: function() {
         console.log('delete');
         $.ajax({
-            url: '../api/wines/' + $('#wineId').val(),
+            url: Wines.url + '/' + $('#wineId').val(),
             type: 'DELETE',
             success: function() {
                 alert('Wine deleted successfully');
@@ -78,9 +89,5 @@ var Wines = {
 };
 
 $(function() {
-    HashHandler.push(
-        ['', Wines.index],
-        ['wines', Wines.detail],
-        ['wines/new', Wines.create]
-    );
+    Wines.init();
 });
