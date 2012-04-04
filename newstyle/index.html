@@ -13,11 +13,14 @@
         </div>
 
         <div id="sidebar">
+            <ul>
+
+            </ul>
             <script type="text/html" id="wineListTpl">
                 <ul>
                     {{#wines}}
                     <li>
-                        <a href="#!wines/{{id}}">{{name}}</a>
+                        <a href="#wines/{{id}}">{{name}}</a>
                     </li>
                     {{/wines}}
                 </ul>
@@ -67,7 +70,9 @@
         <script src="../lib/underscore-min.js"></script>
         <script src="../lib/backbone-min.js"></script>
         <script src="../lib/ICanHaz.js"></script>
-        <script src="../lib/hashhandler.js"></script>
+        <script src="js/model.js"></script>
+        <script src="js/collection.js"></script>
+        <script src="js/view.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>
